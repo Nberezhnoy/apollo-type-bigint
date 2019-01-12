@@ -1,0 +1,43 @@
+{
+	"name": "apollo-type-bigint",
+	"version": "0.1.0",
+	"description": "53-bit and 63-bit integer implementation for GraphQL",
+	"main": "lib/index.js",
+	"directories": {
+		"lib": "lib",
+		"test": "tests"
+	},
+	"scripts": {
+		"prepublishOnly": "npx babel src --out-dir lib",
+		"test": "npx mocha --timeout 15000 --compilers js:@babel/register tests/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Nberezhnoy/apollo-type-bigint.git"
+	},
+	"keywords": [
+		"apollo",
+		"bigint",
+		"graphql",
+		"int",
+		"number"
+	],
+	"author": "Nikita Berezhnoy <nik.pr2012@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Nberezhnoy/apollo-type-bigint/issues"
+	},
+	"homepage": "https://github.com/Nberezhnoy/apollo-type-bigint#readme",
+	"peerDependencies": {
+		"graphql": ">=0.13.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.2.3",
+		"@babel/register": "^7.0.0",
+		"chai": "^4.2.0",
+		"graphql": "^14.0.2",
+		"mocha": "^5.2.0"
+	}
+}
