@@ -1,7 +1,7 @@
-import { GraphQLScalarType } from "graphql";
+import { GraphQLScalarType } from 'graphql';
 
-declare namespace GraphqlScalars {
-  const GraphQLBigInt: GraphQLScalarType;
+class BigInt extends GraphQLScalarType {
+  constructor(mode: string)
 }
 
-export = GraphqlScalars;
+export default BigInt;
