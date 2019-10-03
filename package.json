@@ -7,6 +7,10 @@
 		"lib": "lib",
 		"test": "tests"
 	},
+	"files": [
+		"index.d.ts"
+	],
+	"types": "index.d.ts",
 	"scripts": {
 		"prepublishOnly": "npx babel src --out-dir lib",
 		"test": "npx mocha --timeout 15000 --compilers js:@babel/register tests/index.js"
