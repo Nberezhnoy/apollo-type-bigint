@@ -1,7 +1,9 @@
-import { GraphQLScalarType } from "graphql";
+declare module 'apollo-type-bigint' {
+    import { GraphQLScalarType } from 'graphql';
 
-declare namespace GraphqlScalars {
-  const GraphQLBigInt: GraphQLScalarType;
+    class BigIntClass extends GraphQLScalarType {
+        constructor(mode: string)
+    }
+
+    export default BigIntClass;
 }
-
-export = GraphqlScalars;
