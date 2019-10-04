@@ -1,6 +1,6 @@
 {
 	"name": "apollo-type-bigint",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "53-bit and 63-bit integer implementation for GraphQL",
 	"main": "lib/index.js",
 	"directories": {

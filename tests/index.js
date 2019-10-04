@@ -73,13 +73,13 @@ describe("Test BigInt schema", () => {
 	it("Test error Mutation", async function() {
 		let result = await graphql(bigIntSchema, bigIntErrorMutation, null, null, bigIntErrorVariables);
 		expect(result.errors[0].message).to.be.equal(
-			"Variable \"$inputOne\" got invalid value { num: \"\" }; Expected type BigInt at value.num; The value cannot be converted from BigInt because it is empty string"
+			"Variable \"$inputOne\" got invalid value \"\" at \"inputOne.num\"; Expected type BigInt. The value cannot be converted from BigInt because it is empty string"
 		);
 		expect(result.errors[1].message).to.be.equal(
-			"Variable \"$inputTwo\" got invalid value { num: 1.1 }; Expected type BigInt at value.num; The number 1.1 cannot be converted to a BigInt because it is not an integer"
+			"Variable \"$inputTwo\" got invalid value 1.1 at \"inputTwo.num\"; Expected type BigInt. The number 1.1 cannot be converted to a BigInt because it is not an integer"
 		);
 		expect(result.errors[2].message).to.be.equal(
-			"Variable \"$inputThree\" got invalid value { num: \"1\" }; Expected type BigInt at value.num; The value 1 cannot be converted to a BigInt because it is not an integer"
+			"Variable \"$inputThree\" got invalid value \"1\" at \"inputThree.num\"; Expected type BigInt. The value 1 cannot be converted to a BigInt because it is not an integer"
 		);
 		expect(result.errors).to.be.lengthOf(3);
 	});
@@ -125,13 +125,13 @@ describe("Test Safe schema", () => {
 	it("Test error Mutation", async function() {
 		let result = await graphql(safeSchema, safeErrorMutation, null, null, safeErrorVariables);
 		expect(result.errors[0].message).to.be.equal(
-			"Variable \"$inputOne\" got invalid value { num: \"\" }; Expected type BigInt at value.num; BigInt cannot represent non-integer value: "
+			"Variable \"$inputOne\" got invalid value \"\" at \"inputOne.num\"; Expected type BigInt. BigInt cannot represent non-integer value: "
 		);
 		expect(result.errors[1].message).to.be.equal(
-			"Variable \"$inputTwo\" got invalid value { num: 1.1 }; Expected type BigInt at value.num; BigInt cannot represent non-integer value: 1.1"
+			"Variable \"$inputTwo\" got invalid value 1.1 at \"inputTwo.num\"; Expected type BigInt. BigInt cannot represent non-integer value: 1.1"
 		);
 		expect(result.errors[2].message).to.be.equal(
-			"Variable \"$inputThree\" got invalid value { num: \"1\" }; Expected type BigInt at value.num; BigInt cannot represent non-integer value: 1"
+			"Variable \"$inputThree\" got invalid value \"1\" at \"inputThree.num\"; Expected type BigInt. BigInt cannot represent non-integer value: 1"
 		);
 		expect(result.errors).to.be.lengthOf(3);
 	});
