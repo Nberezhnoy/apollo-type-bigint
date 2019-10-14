@@ -1,7 +1,5 @@
 import { GraphQLScalarType } from 'graphql';
 
-class BigInt extends GraphQLScalarType {
+export default class BigInt extends GraphQLScalarType {
   constructor(mode: string)
 }
-
-export default BigInt;
