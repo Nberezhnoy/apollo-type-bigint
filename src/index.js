@@ -25,13 +25,19 @@ export default class GraphQLBigInt extends GraphQLScalarType {
 			if (value === "") {
 				throw new TypeError("The value cannot be converted from BigInt because it is empty string");
 			}
-			if (typeof value !== "number" && typeof value !== "bigint") {
+			if (typeof value !== "number" && typeof value !== "bigint" && typeof value !== "string") {
 				throw new TypeError(
 					`The value ${value} cannot be converted to a BigInt because it is not an integer`
 				);
 			}
 
-			return global.BigInt(value);
+			try {
+				return global.BigInt(value);
+			} catch {
+				throw new TypeError(
+					`The value ${value} cannot be converted to a BigInt because it is not an integer`
+				);
+			}
 		};
 
 		const serializeBigIntValue = function(value) {
